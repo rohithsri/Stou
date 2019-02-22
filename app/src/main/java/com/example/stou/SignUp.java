@@ -39,7 +39,7 @@ public class SignUp extends AppCompatActivity {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference user_table = database.getReference("User");
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnSignUp.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

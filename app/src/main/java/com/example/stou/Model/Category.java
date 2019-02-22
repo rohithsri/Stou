@@ -3,6 +3,7 @@ package com.example.stou.Model;
 public class Category {
     private String Name;
     private String Image;
+    private String Description;
 
     public Category() {
     }
