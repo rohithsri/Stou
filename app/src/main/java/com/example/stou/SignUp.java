@@ -17,8 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignUp extends AppCompatActivity {
-    MaterialEditText edtPhone, edtName, edtPassword;
+    MaterialEditText edtPhone, edtName, edtPassword, edtSecureCode;
     Button btnSignUp;
+    //boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class SignUp extends AppCompatActivity {
         edtName = (MaterialEditText) findViewById(R.id.edtName);
         edtPassword = (MaterialEditText) findViewById(R.id.edtPassowrd);
         edtPhone = (MaterialEditText) findViewById(R.id.edtPhone);
+        edtSecureCode = (MaterialEditText) findViewById(R.id.edtSecureCode);
 
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
 
@@ -47,6 +49,7 @@ public class SignUp extends AppCompatActivity {
 
                 user_table.addValueEventListener(new ValueEventListener() {
                     @Override
+
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //check if there is a user phone
                         if (dataSnapshot.child(edtPhone.getText().toString()).exists()) {
@@ -55,11 +58,10 @@ public class SignUp extends AppCompatActivity {
                         }
                         else {
                             mDialog.dismiss();
-                            User user = new User(edtName.getText().toString(), edtPassword.getText().toString());
+                            User user = new User(edtName.getText().toString(), edtPassword.getText().toString(), edtSecureCode.getText().toString());
                             user_table.child(edtPhone.getText().toString()).setValue(user);
                             Toast.makeText(SignUp.this, "Sign Up is Successful", Toast.LENGTH_SHORT).show();
                             finish();
-
                         }
                     }
 
