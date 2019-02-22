@@ -3,6 +3,7 @@ package com.example.stou;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.stou.Common.Common;
 import com.example.stou.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,7 +73,11 @@ public class SignIn extends AppCompatActivity {
                             mDialog.dismiss();
                             User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
                             if (user.getPassword().equals(edtPassword.getText().toString())) {
-                                Toast.makeText(SignIn.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(SignIn.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                                Intent homeIntent = new Intent(SignIn.this, Home.class);
+                                Common.currrentUser = user;
+                                startActivity(homeIntent);
+                                finish();
                             } else {
                                 Toast.makeText(SignIn.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
                             }
