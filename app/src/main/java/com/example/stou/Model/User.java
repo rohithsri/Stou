@@ -4,6 +4,7 @@ public class User {
     private String Name;
     private String Password;
     private String secureCode;
+    private String Phone; //sprint2
 
    public User() {
 
@@ -13,6 +14,14 @@ public class User {
         Name = name;
         Password = password;
         this.secureCode = secureCode;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 
     public String getName() {
