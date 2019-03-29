@@ -2,14 +2,16 @@ package com.example.stou.ViewHolder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.stou.Common.Common;
 import com.example.stou.Interface.ItemClickListener;
 import com.example.stou.R;
 
-public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
 
 
     public TextView food_name;
@@ -28,11 +30,21 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         food_image = (ImageView)itemView.findViewById(R.id.food_image);
 
         itemView.setOnClickListener(this);
+        itemView.setOnCreateContextMenuListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         itemClickListener.onClick(v,getAdapterPosition(),false);
+
+    }
+
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        contextMenu.setHeaderTitle("Select the action");
+
+        contextMenu.add(0,0, getAdapterPosition(), Common.UPDATE);
+        contextMenu.add(0,1, getAdapterPosition(), Common.DELETE);
 
     }
 }

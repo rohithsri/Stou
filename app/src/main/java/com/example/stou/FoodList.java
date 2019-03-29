@@ -9,9 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.stou.Common.Common;
 import com.example.stou.Interface.ItemClickListener;
 import com.example.stou.Model.Food;
 import com.example.stou.ViewHolder.FoodViewHolder;
@@ -190,5 +192,30 @@ public class FoodList extends AppCompatActivity {
         //Set Adapter
         Log.d("TAG", ""+adapter.getItemCount());
         recyclerView.setAdapter(adapter);
+    }
+
+
+
+
+    //DELETE AND REMOVE
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getTitle().equals(Common.UPDATE)) {
+            showUpdateFoodDialog(adapter.getRef(item.getOrder()).getKey(),adapter.getItem(item.getOrder()));
+        }
+        else if (item.getTitle().equals(Common.DELETE)) {
+            deleteFood(adapter.getRef(item.getOrder()).getKey());
+
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    private void deleteFood(String key) {
+        foodList.child(key).removeValue();
+    }
+
+    private void showUpdateFoodDialog(String key, Food item) {
+
     }
 }
