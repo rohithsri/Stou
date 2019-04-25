@@ -61,11 +61,7 @@
             android:text="Sign Up"
             android:textColor="@android:color/white" />
 
-        <!--android:shadowEnabled="true"
-            android:buttonColor="@color/btnSignUp"
-            android:cornerRadius="4dp"
 
-            android:shadowHeight="5dp" -->
 
         <Button
             android:id="@+id/btnSignIn"
@@ -82,11 +78,6 @@
 
             />
 
-        <!--
-            android:shadowEnabled="true"
-            android:buttonColor="@color/btnSignActive"
-            android:cornerRadius="4dp"
-            android:shadowHeight="5dp" -->
 
 
     </LinearLayout>

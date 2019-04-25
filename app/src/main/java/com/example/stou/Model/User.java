@@ -5,6 +5,7 @@ public class User {
     private String Password;
     private String secureCode;
     private String Phone; //sprint2
+    private String staff; //sprint 3 server side
 
    public User() {
 
@@ -14,6 +15,15 @@ public class User {
         Name = name;
         Password = password;
         this.secureCode = secureCode;
+        staff = "false"; 
+    }
+
+    public String getStaff() {
+        return staff;
+    }
+
+    public void setStaff(String staff) {
+        this.staff = staff;
     }
 
     public String getPhone() {
