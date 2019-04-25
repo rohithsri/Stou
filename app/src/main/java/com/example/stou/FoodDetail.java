@@ -97,7 +97,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.ExpandedAppbar);
         //get Food Id from intent
         if (getIntent() != null)
-            foodId = getIntent().getStringExtra("FoodId");
+            foodId = getIntent().getStringExtra("foodId");
         if (!foodId.isEmpty()) {
             getDetailFood(foodId);
             getRatingFood(foodId);
