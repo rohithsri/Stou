@@ -22,7 +22,6 @@ import android.support.v7.widget.RecyclerView;
 import com.example.stou.Common.Common;
 import com.example.stou.Interface.ItemClickListener;
 import com.example.stou.Model.Category;
-import com.example.stou.Service.ListenOrder;
 import com.example.stou.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -90,9 +89,6 @@ public class Home extends AppCompatActivity
         recycler_menu.setLayoutManager(layoutManager);
 
         loadMenu();
-
-        Intent service = new Intent(Home.this, ListenOrder.class);
-        startService(service);
     }
 
     private void loadMenu() {

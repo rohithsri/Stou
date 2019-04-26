@@ -7,6 +7,7 @@ public class Common {
 
     public static final String UPDATE = "Update";
     public static final String DELETE = "Delete";
+<<<<<<< HEAD
 
     public static String convertCodeToStatus(String status) {
         if(status.equals("0")){
@@ -17,4 +18,6 @@ public class Common {
             return "Order is delivered";
         }
     }
+=======
+>>>>>>> f41793933d4e682d5106f7b0471df756a1d0c19e
 }
