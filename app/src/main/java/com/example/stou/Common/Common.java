@@ -12,9 +12,9 @@ public class Common {
         if(status.equals("0")){
             return "Order Placed";
         }else if(status.equals("1")){
-            return "Order is being prepared";
+            return "Order is out for delivery";
         }else{
-            return "Order is shipped";
+            return "Order is delivered";
         }
     }
 }
